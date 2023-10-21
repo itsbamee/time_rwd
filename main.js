@@ -35,11 +35,11 @@ function setTime(num, index) {
 function changeTheme() {
 	const hr = new Date().getHours();
 
-	if (hr >= 5 && hr < 11) {
+	if (hr >= 5 && hr < 14) {
 		main.className = ''; //클래스 네임 비우기
 		main.classList.add('morning');
 	}
-	if (hr >= 11 && hr < 16) {
+	if (hr >= 14 && hr < 16) {
 		main.className = '';
 		main.classList.add('afternoon');
 	}
