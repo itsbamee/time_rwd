@@ -26,6 +26,8 @@ main {
   background-position: center;
   background-size: cover;
   background: url(../img/bg_morning.jpg);
+  overflow: hidden;
+  position: relative;
 }
 main article {
   width: 40vw;
@@ -41,10 +43,33 @@ main article p {
 main article p strong {
   opacity: 0.7;
 }
-main article p em {
+main article em {
   font: 1rem/1.2 "arial";
   color: #fff;
   letter-spacing: 2px;
+}
+main figure {
+  width: 1200px;
+  height: 800px;
+  position: absolute;
+  right: -5vw;
+  bottom: -5vw;
+  background-image: url(../img/phone_morning.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+main figure .screen {
+  width: 533px;
+  height: 300px;
+  position: absolute;
+  top: 98px;
+  left: 133px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font: 60px/1 "orbitron";
+  color: #fff;
 }
 
 /*# sourceMappingURL=style.css.map */
