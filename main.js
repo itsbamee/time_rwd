@@ -2,6 +2,13 @@ const main = document.querySelector('main');
 const numbers = main.querySelectorAll('.screen span');
 const [am, pm] = main.querySelectorAll('.screen em');
 
+const data = [
+	{ cond: new Date().getHours() >= 5 && new Date().getHours() < 12, name: 'morning' },
+	{ cond: new Date().getHours() >= 12 && new Date().getHours() < 16, name: 'afternoon' },
+	{ cond: new Date().getHours() >= 16 && new Date().getHours() < 19, name: 'evening' },
+	{ cond: new Date().getHours() >= 19 || new Date().getHours() < 5, name: 'night' },
+];
+
 setInterval(() => {
 	changeTheme();
 	getTime().forEach((num, idx) => setTime(num, idx));
@@ -33,15 +40,6 @@ function setTime(num, index) {
 
 //테마 변경함수
 function changeTheme() {
-	const hr = new Date().getHours();
-
-	const data = [
-		{ cond: hr >= 5 && hr < 12, name: 'morning' },
-		{ cond: hr >= 12 && hr < 16, name: 'afternoon' },
-		{ cond: hr >= 16 && hr < 19, name: 'evening' },
-		{ cond: hr >= 19 || hr < 5, name: 'night' },
-	];
-
 	data.forEach((item) => {
 		if (item.cond) {
 			main.className = '';
