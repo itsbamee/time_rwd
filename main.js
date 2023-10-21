@@ -36,10 +36,10 @@ function changeTheme() {
 	const hr = new Date().getHours();
 
 	const data = [
-		{ cond: hr >= 5 && hr < 14, name: 'morning' },
-		{ cond: hr >= 14 && hr < 16, name: 'afternoon' },
-		{ cond: hr >= 16 && hr < 20, name: 'evening' },
-		{ cond: hr >= 20 || hr < 5, name: 'night' },
+		{ cond: hr >= 5 && hr < 12, name: 'morning' },
+		{ cond: hr >= 12 && hr < 16, name: 'afternoon' },
+		{ cond: hr >= 16 && hr < 19, name: 'evening' },
+		{ cond: hr >= 19 || hr < 5, name: 'night' },
 	];
 
 	data.forEach((item) => {
@@ -49,3 +49,28 @@ function changeTheme() {
 		}
 	});
 }
+
+//데이터 fetching함수
+// async function getData() {
+// 	const data = await fetch('data.json');
+// 	const json = await data.json();
+// 	themeCond = json.theme;
+// 	//console.log(themeCond);
+// }
+
+/*
+	themeCond.forEach((el, idx) => {
+		if (Object.keys(el)[0] === 'night') {
+			data.push({
+				cond: hr < Object.values(el)[0].split(',')[0] || hr >= Object.values(el)[0].split(',')[1],
+				name: Object.keys(el)[0],
+			});
+		}
+		data.push({
+			cond: hr >= Object.values(el)[0].split(',')[0] && hr < Object.values(el)[0].split(',')[1],
+			name: Object.keys(el)[0],
+		});
+	});
+
+	console.log(data);
+  */
