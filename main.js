@@ -35,20 +35,17 @@ function setTime(num, index) {
 function changeTheme() {
 	const hr = new Date().getHours();
 
-	if (hr >= 5 && hr < 14) {
-		main.className = ''; //클래스 네임 비우기
-		main.classList.add('morning');
-	}
-	if (hr >= 14 && hr < 16) {
-		main.className = '';
-		main.classList.add('afternoon');
-	}
-	if (hr >= 16 && hr < 20) {
-		main.className = '';
-		main.classList.add('evening');
-	}
-	if (hr >= 20 || hr < 5) {
-		main.className = '';
-		main.classList.add('night');
-	}
+	const data = [
+		{ cond: hr >= 5 && hr < 14, name: 'morning' },
+		{ cond: hr >= 14 && hr < 16, name: 'afternoon' },
+		{ cond: hr >= 16 && hr < 20, name: 'evening' },
+		{ cond: hr >= 20 || hr < 5, name: 'night' },
+	];
+
+	data.forEach((item) => {
+		if (item.cond) {
+			main.className = '';
+			main.classList.add(item.name);
+		}
+	});
 }
