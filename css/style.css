@@ -30,7 +30,7 @@ main {
   position: relative;
 }
 main article {
-  width: 40vw;
+  width: 35vw;
   position: absolute;
   top: 40vh;
   left: 5vw;
@@ -52,8 +52,9 @@ main figure {
   width: 1200px;
   height: 800px;
   position: absolute;
-  right: -5vw;
-  bottom: -5vw;
+  right: -10vw;
+  top: 50%;
+  margin-top: -200px;
   background-image: url(../img/phone_morning.png);
   background-repeat: no-repeat;
   background-size: contain;
@@ -84,6 +85,35 @@ main figure .screen em.on {
 }
 main figure .screen span {
   width: 90px;
+}
+
+@media screen and (max-width: 1600px) {
+  main figure {
+    transform-origin: right center;
+    transform: scale(0.8);
+    margin-top: -250px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  main article {
+    width: 100%;
+    top: 10vh;
+    left: 0;
+    padding: 10vw;
+  }
+  main figure {
+    transform: scale(0.7);
+    margin-top: -200px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  main article {
+    top: 0;
+  }
+  main figure {
+    transform: scale(0.6);
+    right: -20vw;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
