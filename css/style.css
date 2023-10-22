@@ -62,6 +62,29 @@ main .cl2 {
     opacity: 0;
   }
 }
+main nav {
+  width: 50%;
+  padding: 5vh 10vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  color: #111;
+}
+main nav span {
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: "orbitron";
+  letter-spacing: 1px;
+  color: inherit;
+  cursor: pointer;
+  opacity: 0.7;
+}
+main nav span.on {
+  opacity: 1;
+}
 main article {
   width: 35vw;
   position: absolute;
