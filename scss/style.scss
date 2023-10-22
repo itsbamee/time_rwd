@@ -1,6 +1,5 @@
 @import 'reset';
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
-$names: (morning, afternoon, evening, night);
 
 main {
 	width: 100%;
@@ -85,11 +84,22 @@ main {
 }
 
 //$names라는 배열값을 반복돌면서 배경이미지 처리
+$names: (morning, afternoon, evening, night);
+
 @each $name in $names {
 	main.#{$name} {
 		background-image: url(../img/bg_#{$name}.jpg);
 		figure {
 			background-image: url(../img/phone_#{$name}.png);
+		}
+	}
+}
+
+main.afternoon {
+	figure .screen {
+		em,
+		span {
+			color: #555;
 		}
 	}
 }

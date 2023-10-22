@@ -1,16 +1,28 @@
 {
   "theme": [
     {
-      "morning": "5,14"
+      "morning": [
+        5,
+        9
+      ]
     },
     {
-      "afternoon": "14,16"
+      "afternoon": [
+        9,
+        16
+      ]
     },
     {
-      "evening": "16,20"
+      "evening": [
+        16,
+        20
+      ]
     },
     {
-      "night": "5,20"
-    },
+      "night": [
+        5,
+        20
+      ]
+    }
   ]
 }
