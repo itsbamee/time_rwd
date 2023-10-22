@@ -118,7 +118,7 @@ main {
 				top: 90px;
 				left: 80px;
 				font: 20px/1 'orbitron';
-				color: #fff;
+				color: inherit;
 				opacity: 0;
 
 				&.on {
@@ -148,10 +148,7 @@ $names: (morning, afternoon, evening, night);
 
 main.afternoon {
 	figure .screen {
-		em,
-		span {
-			color: #555;
-		}
+		color: #555;
 	}
 }
 

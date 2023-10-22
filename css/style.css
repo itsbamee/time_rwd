@@ -130,7 +130,7 @@ main figure .screen em {
   top: 90px;
   left: 80px;
   font: 20px/1 "orbitron";
-  color: #fff;
+  color: inherit;
   opacity: 0;
 }
 main figure .screen em.on {
@@ -169,8 +169,7 @@ main.night figure {
   background-image: url(../img/phone_night.png);
 }
 
-main.afternoon figure .screen em,
-main.afternoon figure .screen span {
+main.afternoon figure .screen {
   color: #555;
 }
 
