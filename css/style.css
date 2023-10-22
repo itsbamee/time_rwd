@@ -123,6 +123,11 @@ main.night figure {
   background-image: url(../img/phone_night.png);
 }
 
+main.afternoon figure .screen em,
+main.afternoon figure .screen span {
+  color: #555;
+}
+
 @media screen and (max-width: 1600px) {
   main figure {
     transform-origin: right center;
