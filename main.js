@@ -2,16 +2,12 @@ const main = document.querySelector('main');
 const numbers = main.querySelectorAll('.screen span');
 const [am, pm] = main.querySelectorAll('.screen em');
 
-const data = [
-	{ cond: new Date().getHours() >= 5 && new Date().getHours() < 12, name: 'morning' },
-	{ cond: new Date().getHours() >= 12 && new Date().getHours() < 16, name: 'afternoon' },
-	{ cond: new Date().getHours() >= 16 && new Date().getHours() < 19, name: 'evening' },
-	{ cond: new Date().getHours() >= 19 || new Date().getHours() < 5, name: 'night' },
-];
+let themeData = [];
+getData();
 
 setInterval(() => {
-	changeTheme();
 	getTime().forEach((num, idx) => setTime(num, idx));
+	changeTheme();
 }, 1000);
 
 //시간값을 구해서 반환하는 함수
@@ -38,37 +34,34 @@ function setTime(num, index) {
 	numbers[index].innerText = num;
 }
 
-//테마 변경함수
-function changeTheme() {
-	data.forEach((item) => {
-		if (item.cond) {
-			main.className = '';
-			main.classList.add(item.name);
-		}
+//데이터 fetching함수
+async function getData() {
+	const data = await fetch('data.json');
+	const json = await data.json();
+
+	json.theme.forEach((el) => {
+		const key = Object.keys(el)[0];
+		const [startTime, endTime] = el[key];
+
+		key === 'night'
+			? themeData.push({ cond: new Date().getHours() >= endTime || new Date().getHours() < startTime, name: key })
+			: themeData.push({ cond: new Date().getHours() >= startTime && new Date().getHours() < endTime, name: key });
 	});
+
+	console.log(themeData);
 }
 
-//데이터 fetching함수
-// async function getData() {
-// 	const data = await fetch('data.json');
-// 	const json = await data.json();
-// 	themeCond = json.theme;
-// 	//console.log(themeCond);
-// }
+//테마 변경 함수
+function changeTheme() {
+	main.className = '';
+	themeData.forEach((item) => item.cond && main.classList.add(item.name));
+}
 
 /*
-	themeCond.forEach((el, idx) => {
-		if (Object.keys(el)[0] === 'night') {
-			data.push({
-				cond: hr < Object.values(el)[0].split(',')[0] || hr >= Object.values(el)[0].split(',')[1],
-				name: Object.keys(el)[0],
-			});
-		}
-		data.push({
-			cond: hr >= Object.values(el)[0].split(',')[0] && hr < Object.values(el)[0].split(',')[1],
-			name: Object.keys(el)[0],
-		});
-	});
-
-	console.log(data);
-  */
+const data = [
+	{ cond: new Date().getHours() >= 5 && new Date().getHours() < 12, name: 'morning' },
+	{ cond: new Date().getHours() >= 12 && new Date().getHours() < 16, name: 'afternoon' },
+	{ cond: new Date().getHours() >= 16 && new Date().getHours() < 19, name: 'evening' },
+	{ cond: new Date().getHours() >= 19 || new Date().getHours() < 5, name: 'night' },
+];
+*/
