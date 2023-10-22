@@ -1,14 +1,32 @@
 const main = document.querySelector('main');
 const numbers = main.querySelectorAll('.screen span');
+const menus = main.querySelectorAll('nav span');
 const [am, pm] = main.querySelectorAll('.screen em');
-
 let themeData = [];
+let isAuto = true;
+let timer = null;
+
 getData();
 
-setInterval(() => {
-	getTime().forEach((num, idx) => setTime(num, idx));
-	changeTheme();
-}, 1000);
+if (isAuto) {
+	timer = setInterval(() => {
+		getTime().forEach((num, idx) => setTime(num, idx));
+		changeTheme();
+	}, 1000);
+} else {
+	clearInterval(timer);
+}
+
+menus.forEach((menu) => {
+	menu.addEventListener('click', (e) => {
+		menus.forEach((menu) => menu.classList.remove('on'));
+		e.target.classList.add('on');
+		isAuto = false;
+		clearInterval(timer);
+		main.className = '';
+		main.classList.add(e.target.innerText.toLowerCase());
+	});
+});
 
 //시간값을 구해서 반환하는 함수
 function getTime() {
