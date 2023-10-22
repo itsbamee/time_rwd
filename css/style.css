@@ -71,7 +71,7 @@ main nav {
   z-index: 5;
   display: flex;
   justify-content: space-between;
-  color: #111;
+  color: #333;
 }
 main nav span {
   font-size: 1rem;
@@ -196,6 +196,10 @@ main.afternoon figure .screen {
   color: #555;
 }
 
+main.night nav {
+  color: #fff;
+}
+
 @media screen and (max-width: 1600px) {
   main figure {
     transform-origin: right center;
@@ -214,6 +218,9 @@ main.afternoon figure .screen {
   }
 }
 @media screen and (max-width: 1200px) {
+  main nav {
+    width: 100%;
+  }
   main article {
     width: 100%;
     top: 10vh;
