@@ -95,6 +95,24 @@ main {
 			text-align: center;
 			overflow: hidden;
 
+			.cl1 {
+				width: 600px;
+				position: absolute;
+				top: 30px;
+				left: 0;
+				opacity: 0;
+				animation: move 40s linear 20s infinite;
+			}
+
+			.cl2 {
+				width: 700px;
+				position: absolute;
+				top: 20px;
+				left: 0;
+				opacity: 0;
+				animation: move 40s linear 0s infinite;
+			}
+
 			em {
 				position: absolute;
 				top: 90px;
@@ -186,6 +204,15 @@ main.afternoon {
 		figure {
 			margin-top: -200px;
 			transform: scale(0.7);
+		}
+	}
+
+	main.afternoon {
+		article {
+			span,
+			em {
+				color: #555;
+			}
 		}
 	}
 }
